@@ -1,0 +1,7 @@
+__pycache__
+data*
+*.pyc
+models*
+mjkey.txt
+plot.sh
+run_dqn.sh
