@@ -7,7 +7,7 @@ These algorithms will make it easier for the research community to replicate, re
 | algorithm | Discrete Control | Value-based | Policy-based
 |:-|:-:|:-:|:-:|
 | [Deep Q-Learning (DQN)](https://www.nature.com/articles/nature14236) | :white_check_mark: | :white_check_mark:|:no_entry:|
-| [Double DQN](https://arxiv.org/abs/1707.06347) | :white_check_mark: | :white_check_mark: | :no_entry:|
+| [Double DQN](https://arxiv.org/abs/1509.06461) | :white_check_mark: | :white_check_mark: | :no_entry:|
 | [Dueling DQN](https://arxiv.org/abs/1511.06581) | :white_check_mark: | :white_check_mark: | :no_entry:|
 | [Prioritized Experience Replay (PER)](https://arxiv.org/abs/1511.05952) | :white_check_mark: | :white_check_mark: |:no_entry:|
 ### TODO: Waiting to be implemented...
