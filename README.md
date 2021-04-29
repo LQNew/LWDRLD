@@ -55,14 +55,15 @@ CUDA_VISIBLE_DEVICES=0 python main_per.py --policy "Dueling_Double_DQN_per" --en
 ### Plot results
 ```bash
 # eg. Notice: `-l` denotes labels, `data/DQN-PongNoFrameskip-v4/` represents the collecting dataset, 
-# and `-s` represents smoothing value.
+# `-s` represents smoothing value, `-t` represents title.
 python spinupUtils/plot.py \
     data/DQN-PongNoFrameskip-v4/ \
-    -l DQN -s 10
+    -l DQN -s 10 -t PongNoFrameskip-v4
 ```
 
 ### Performance on Atari
-
+<img src="images/Atari_result.png" width="1000px" align="middle"/>
+<br>
 
 ### Citation
 ```bash
