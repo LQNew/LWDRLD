@@ -63,7 +63,7 @@ python spinupUtils/plot.py \
 
 ### Performance on Atari
 <img src="images/Atari_result_0.png" width="1000px" align="middle"/>
-<center><img src="images/Atari_result_1.png" width="440px" align="middle"/><center>
+<p align="center"> <img src="images/Atari_result_1.png" width="440px"/></p>
 <br>
 
 ### Citation
