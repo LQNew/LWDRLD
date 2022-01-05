@@ -25,7 +25,13 @@ RUN cd /root/dependencies/ && \
     mv /root/dependencies/mujoco200_linux /root/.mujoco/mujoco200_linux && \
     cp -r /root/.mujoco/mujoco200_linux /root/.mujoco/mujoco200 && \
     mv /root/dependencies/patchelf /usr/local/bin/patchelf && \
-    chmod +x /usr/local/bin/patchelf
+    chmod +x /usr/local/bin/patchelf && \
+    unzip /root/dependencies/ohmyzsh-master.zip && \
+    unzip /root/dependencies/zsh-autosuggestions-master.zip && \
+    unzip /root/dependencies/zsh-syntax-highlighting-master.zip && \
+    mv /root/dependencies/ohmyzsh-master /root/.oh-my-zsh && \
+    mv /root/dependencies/zsh-autosuggestions-master /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions && \
+    mv /root/dependencies/zsh-syntax-highlighting-master /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 COPY mjkey.txt /root/.mujoco/
 ENV LD_LIBRARY_PATH /root/.mujoco/mujoco200/bin:${LD_LIBRARY_PATH}
 ENV LD_LIBRARY_PATH /root/.mujoco/mujoco200_linux/bin:${LD_LIBRARY_PATH}
@@ -85,9 +91,9 @@ RUN sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list &&
         zsh \ 
         tzdata \
         && \
-    $GIT_CLONE https://github.com/ohmyzsh/ohmyzsh.git /root/.oh-my-zsh && \
-    $GIT_CLONE https://github.com/zsh-users/zsh-autosuggestions.git /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions && \
-    $GIT_CLONE https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting && \
+    # $GIT_CLONE https://github.com/ohmyzsh/ohmyzsh.git /root/.oh-my-zsh && \
+    # $GIT_CLONE https://github.com/zsh-users/zsh-autosuggestions.git /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions && \
+    # $GIT_CLONE https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting && \
     chsh -s /bin/zsh && \
     $PIP_INSTALL -i https://mirrors.aliyun.com/pypi/simple \
         pip \
@@ -119,11 +125,14 @@ RUN sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list &&
         glfw \
         scikit-image \
         box2d-py \
-        gym \
-        mujoco-py \
+        gym==0.20.0 \
+        ale_py==0.7 \
+        autorom \
+        mujoco-py==2.0.2.13 \
         atari-py \
         opencv-python \
         && \
+    AutoROM --accept-license && \
     cd /root/dependencies/ && \
     unzip /root/dependencies/dm_control-master.zip && \
     unzip /root/dependencies/dmc2gym-master.zip && \

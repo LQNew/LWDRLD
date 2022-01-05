@@ -28,12 +28,7 @@ def plot_data(data, xaxis="Epoch", value="AverageEpRet", condition="Condition1",
 
 	if isinstance(data, list):
 		data = pd.concat(data, ignore_index=True)
-	# For 6 algs 
-	# flatui = ["#c34b4f", "#486fae", "#4fa563", "#8879b6", "#cab66d", "#5db2cb"]
-	# sns.set(style="white", palette=sns.color_palette(flatui), font_scale=1.5)
-	# For 5 algs
-	# flatui = ["#c34b4f", "#4fa563", "#8879b6", "#cab66d", "#5db2cb", "#486fae",]
-	# sns.set(style="white", palette=sns.color_palette(flatui), font_scale=1.5)
+
 	# Default
 	sns.set(style="whitegrid", font_scale=1.5)
 	# ax = sns.tsplot(data=data, time=xaxis, value=value, unit="Unit", condition=condition, ci="sd", **kwargs)
@@ -42,7 +37,7 @@ def plot_data(data, xaxis="Epoch", value="AverageEpRet", condition="Condition1",
 	ax.set_xlabel("Steps")
 	"""
 	If you upgrade to any version of Seaborn greater than 0.8.1, switch from 
-	tsplot to lineplot replacing L39 with:
+	tsplot to lineplot replacing L34 with:
 
 		sns.lineplot(data=data, x=xaxis, y=value, hue=condition, ci="sd", **kwargs)
 
@@ -50,8 +45,6 @@ def plot_data(data, xaxis="Epoch", value="AverageEpRet", condition="Condition1",
 	"""
 	plt.legend(loc="best").set_draggable(True)
 	plt.tick_params(direction="out", length=4)
-	# plt.legend(loc="upper center", ncol=3, handlelength=1, borderaxespad=0., prop={"size": 13})
-
 	"""
 	For the version of the legend used in the Spinning Up benchmarking page, 
 	swap L38 with:
