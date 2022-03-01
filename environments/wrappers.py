@@ -165,6 +165,9 @@ class ImageToPyTorch(gym.ObservationWrapper):
 
 
 class ClippedRewardsWrapper(gym.RewardWrapper):
+	# Clip rewards for numerical stability. 
+	# As the scale of scores varies greatly from game to game, we clipped all positive rewards at +1.
+	# And all negative rewards at -1, leaving 0 rewards unchanged.
 	def __init__(self, env):
 		gym.RewardWrapper.__init__(self, env)
 

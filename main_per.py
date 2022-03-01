@@ -128,11 +128,6 @@ if __name__ == "__main__":
 			if maybeepinfo: 
 				epinfobuf.append(maybeepinfo)
 
-		# Clip rewards for numerical stability. 
-		# As the scale of scores varies greatly from game to game, we clipped all positive rewards at +1.
-		# And all negative rewards at -1, leaving 0 rewards unchanged.
-		clip_rewards = np.sign(rewards)
-
 		# Store the transition
 		for i in range(args.num_envs):
 			_replay_buffer.add(states[i], actions[i], next_states[i], rewards[i], dones[i])
